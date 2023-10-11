@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  ch_server:
+    image: yandex/clickhouse-server
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./data:/var/lib/clickhouse
+    networks:
+      - ch_ntw
+
+networks:
+  ch_ntw:
