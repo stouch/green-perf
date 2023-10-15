@@ -39,7 +39,18 @@ const fundScrape = async (
 const initialScrape = async (from: string) => {
   console.log("Initial scrape...");
 
-  // Create histo table
+  // Create tables
+  await chClient().command({
+    query: `
+      CREATE TABLE IF NOT EXISTS fund
+      (
+        id String,
+        name String
+      )
+      ENGINE MergeTree()
+      ORDER BY (id)
+    `,
+  });
   await chClient().command({
     query: `
       CREATE TABLE IF NOT EXISTS fund_histo_data
@@ -62,16 +73,25 @@ const initialScrape = async (from: string) => {
   > = require("./funds.json");
 
   // .. we fetch initial data:
-  const assets: Array<Promise<Asset>> = funds.map(async (row) =>
-    fundScrape(row[0], from, row[1], row[2], row[3])
+  const assets: Array<Promise<Asset>> = funds.map(async (fund) =>
+    fundScrape(fund[0], from, fund[1], fund[2], fund[3])
   );
 
   // Insert initial data
   await chClient().insert({
-    table: "fund_histo_data",
-    // structure should match the desired format, JSONEachRow in this example
+    table: "fund",
     values: [
-      (
+      ...funds.map((asset) => ({
+        id: asset[1],
+        name: asset[2],
+      })),
+    ],
+    format: "JSONEachRow",
+  });
+  await chClient().insert({
+    table: "fund_histo_data",
+    values: [
+      ...(
         await Promise.all(assets)
       )
         .map((asset) =>
