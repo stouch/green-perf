@@ -1,17 +1,34 @@
-# Green Investments Performance
+# Green Assets Ranking App
 
 ## Installation
 
 ```bash
 nvm use
-npm ci
-
-# run the clickhouse database (user: default)
-docker compose up -d
 ```
 
-## Scrape data from green investments "Greenfin"
+### Import Data
 
 ```bash
+cd src/scrape
+npm ci
+
+# Start the clickhouse database (user: default)
+docker compose up -d
+
+# Import initial data
 npm run scrape
+```
+
+### Install app
+
+```bash
+cd src/ranking-app
+npm ci
+```
+
+## Start app
+
+```bash
+cd src/ranking-app
+npm run dev
 ```

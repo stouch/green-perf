@@ -1,7 +1,7 @@
 import yahooFinance from "yahoo-finance2";
 import dayjs from "dayjs";
-import { Asset, AssetHistoryDay, AssetScrapeSource } from "../types";
-import { chClient } from "../db-client";
+import { Asset, AssetHistoryDay, AssetScrapeSource } from "./types";
+import { chClient } from "./db-client";
 
 const yahooHistoryScrape = async (
   tickerId: string,

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "scrape": "ts-node ./src/scrape/index.ts"
+    "scrape": "ts-node ./index.ts"
   },
   "dependencies": {
     "@clickhouse/client": "^0.2.3",
