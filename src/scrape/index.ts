@@ -73,11 +73,15 @@ const initialScrape = async (from: string) => {
   > = require("./funds.json");
 
   // .. we fetch initial data:
-  const assets: Array<Promise<Asset>> = funds.map(async (fund) =>
-    fundScrape(fund[0], from, fund[1], fund[2], fund[3])
-  );
+  const assets: Array<Promise<Asset>> = funds.map(async (fund) => {
+    console.log(`Scrap asset ${fund[0]}/${fund[2]}...`);
+    return await fundScrape(fund[0], from, fund[1], fund[2], fund[3]);
+  });
 
   // Insert initial data
+
+  // TODO: insert conditionnally ONLY if date data isnt in table.
+
   await chClient().insert({
     table: "fund",
     values: [
@@ -111,4 +115,4 @@ const initialScrape = async (from: string) => {
 };
 
 // Run the initial import
-initialScrape("2023-08-01");
+initialScrape("2023-06-01");
