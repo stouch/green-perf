@@ -32,3 +32,5 @@ npm ci
 cd src/ranking-app
 npm run dev
 ```
+
+![ScreenShot](screenshot.png)
