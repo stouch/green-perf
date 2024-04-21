@@ -11,7 +11,9 @@ export default function Home() {
           Ranking
           <RankedFunds />
         </div>
-        <div className="mt-6">{/* <FundChart id={"0P00016Q7A.F"} /> */}</div>
+        <div className="mt-6">
+          <FundChart id={"0P00016Q7A.F"} />
+        </div>
       </div>
     </main>
   );

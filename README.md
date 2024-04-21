@@ -1,36 +1,34 @@
 # Green Assets Ranking App
 
-## Installation
+## Import Data
+
+```bash
+# Start the clickhouse database (user: default)
+docker compose up -d
+```
 
 ```bash
 nvm use
-```
-
-### Import Data
-
-```bash
-cd src/scrape
+cd src/import
 npm ci
-
-# Start the clickhouse database (user: default)
-docker compose up -d
-
 # Import initial data
-npm run scrape
+npm run import
 ```
 
-### Install app
+## Install and start app
 
 ```bash
+nvm use
 cd src/ranking-app
 npm ci
 ```
 
-## Start app
+And then start the app:
 
 ```bash
-cd src/ranking-app
 npm run dev
 ```
 
 ![ScreenShot](screenshot.png)
+
+![ScreenShot 2](screenshot_2.png)

@@ -37,7 +37,19 @@ const fundScrape = async (
 };
 
 const initialScrape = async (from: string) => {
-  console.log("Initial scrape...");
+  console.log(`Initial import from ${from}...`);
+
+  // DROP TABLES:
+  await chClient().command({
+    query: `
+      DROP TABLE fund
+    `,
+  });
+  await chClient().command({
+    query: `
+      DROP TABLE fund_histo_data
+    `,
+  });
 
   // Create tables
   await chClient().command({
@@ -74,7 +86,7 @@ const initialScrape = async (from: string) => {
 
   // .. we fetch initial data:
   const assets: Array<Promise<Asset>> = funds.map(async (fund) => {
-    console.log(`Scrap asset ${fund[0]}/${fund[2]}...`);
+    console.log(`Import asset ${fund[0]}/${fund[2]}...`);
     return await fundScrape(fund[0], from, fund[1], fund[2], fund[3]);
   });
 
