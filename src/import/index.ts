@@ -42,12 +42,12 @@ const initialScrape = async (from: string) => {
   // DROP TABLES:
   await chClient().command({
     query: `
-      DROP TABLE fund
+      DROP TABLE IF EXISTS fund
     `,
   });
   await chClient().command({
     query: `
-      DROP TABLE fund_histo_data
+      DROP TABLE IF EXISTS fund_histo_data
     `,
   });
 
