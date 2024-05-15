@@ -4,10 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { FundPeriodSummary } from "../../types/shared/fund";
 import { deltaBetweenInPercent } from "../includes/utils";
 import dayjs from "dayjs";
+import nextConfig from "../../next.config";
 
 export const RankedFunds = () => {
   const rankingData = useQuery<FundPeriodSummary[]>(["ranking"], async () => {
-    const response = await fetch(`http://localhost:3000/api/funds/ranking`);
+    const response = await fetch(`${nextConfig.basePath}/api/funds/ranking`);
     return await response.json();
   });
   return (
@@ -49,7 +50,7 @@ export const RankedFunds = () => {
           ).format("D/M/YY")}) -> ${yesterdayToLabel})`;
 
           return (
-            <div className="flex flex-row gap-3 my-4">
+            <div key={summary.name} className="flex flex-row gap-3 my-4">
               <div className="w-12">{summary.position}</div>
               <div className="w-96">{summary.name}</div>
               <div

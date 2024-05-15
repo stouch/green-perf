@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { FundDayData } from "../../types/shared/fund";
 import * as echarts from "echarts/core";
@@ -49,7 +49,6 @@ export const Candlestick = ({
   const data = splitData(fundDays);
   return (
     <div>
-      {/* @ts-expect-error Server Component */}
       <ReactEcharts
         echarts={echarts}
         lazyUpdate={true}
