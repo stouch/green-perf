@@ -41,10 +41,11 @@ And then start the app:
 npm run dev
 ```
 
-To build the app, for example under a specific path:
+To build the app, for example under a specific path, change the `basePath` of `src/ranking-app/next.config.js`
 
 ```bash
-BASE_PATH="/green-perf" npm run start
+npm run build
+npm run start
 ```
 
 ![ScreenShot](screenshot.png)
