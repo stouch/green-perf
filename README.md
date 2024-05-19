@@ -41,6 +41,12 @@ And then start the app:
 npm run dev
 ```
 
+To build the app, for example under a specific path:
+
+```bash
+BASE_PATH="/green-perf" npm run start
+```
+
 ![ScreenShot](screenshot.png)
 
 ![ScreenShot 2](screenshot_2.png)
