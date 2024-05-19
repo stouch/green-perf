@@ -1,0 +1,30 @@
+{
+    "MAAF": {
+        "name": "MAAF",
+        "type": "Assurance-vie"
+    },
+    "LCL": {
+        "name": "LCL",
+        "type": "Assurance-vie"
+    },
+    "MIROVA": {
+        "name": "Mirova",
+        "type": "Assurance-vie"
+    },
+    "AFER": {
+        "name": "Afer",
+        "type": "Assurance-retraite"
+    },
+    "AXA": {
+        "name": "AXA",
+        "type": "Assurance-vie"
+    },
+    "ALLIANZ": {
+        "name": "Allianz",
+        "type": "Assurance-vie"
+    },
+    "SG": {
+        "name": "Société Générale",
+        "type": "Assurance-vie"
+    }
+}

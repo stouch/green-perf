@@ -4,7 +4,7 @@ services:
   ch_server:
     image: yandex/clickhouse-server
     ports:
-      - "8123:8123"
+      - "127.0.0.1:8123:8123"
     volumes:
       - ./data:/var/lib/clickhouse
     networks:

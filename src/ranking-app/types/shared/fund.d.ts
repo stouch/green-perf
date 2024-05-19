@@ -28,4 +28,8 @@ export type FundPeriodSummary = {
   thirty_days_date: Date;
   six_month_low_value: number;
   six_month_date: Date;
+  one_year_low_value: number;
+  one_year_date: Date;
+  two_year_low_value: number;
+  two_year_date: Date;
 };

@@ -65,7 +65,11 @@ export const getFundsRanking = async ({
         thirtyDaysAgo.low_value as thirty_days_low_value,
         thirtyDaysAgo.date as thirty_days_date,
         sixMonthAgo.low_value as six_month_low_value,
-        sixMonthAgo.date as six_month_date
+        sixMonthAgo.date as six_month_date,
+        if(oneYearAgo.low_value > 0, oneYearAgo.low_value, oldestAgo.low_value) as one_year_low_value,
+        if(oneYearAgo.date != toDateTime('1970-01-01 00:00:00'), oneYearAgo.date, oldestAgo.date) as one_year_date,
+        if(twoYearAgo.low_value > 0, twoYearAgo.low_value, oldestAgo.low_value) as two_year_low_value,
+        if(twoYearAgo.date != toDateTime('1970-01-01 00:00:00'), twoYearAgo.date, oldestAgo.date) as two_year_date
 
       FROM fund_histo_data 
         INNER JOIN fund ON fund.id = fund_histo_data.fund_id
@@ -98,17 +102,43 @@ export const getFundsRanking = async ({
         LEFT JOIN fund_histo_data sixMonthAgo ON 
           sixMonthAgo.date = sixMonthAgoDate.max_date AND sixMonthAgo.fund_id = fund.id
 
+        LEFT JOIN (
+          SELECT MAX(date) as max_date, fund_id FROM fund_histo_data 
+            WHERE date <= {oneYearAgo: Date} GROUP BY fund_id
+        ) oneYearAgoDate ON fund.id = oneYearAgoDate.fund_id
+        LEFT JOIN fund_histo_data oneYearAgo ON 
+          oneYearAgo.date = oneYearAgoDate.max_date AND oneYearAgo.fund_id = fund.id
+
+        LEFT JOIN (
+          SELECT MAX(date) as max_date, fund_id FROM fund_histo_data 
+            WHERE date <= {twoYearAgo: Date} GROUP BY fund_id
+        ) twoYearAgoDate ON fund.id = twoYearAgoDate.fund_id
+        LEFT JOIN fund_histo_data twoYearAgo ON 
+          twoYearAgo.date = twoYearAgoDate.max_date AND twoYearAgo.fund_id = fund.id
+
+        LEFT JOIN (
+          SELECT MIN(date) as min_date, fund_id FROM fund_histo_data GROUP BY fund_id
+        ) oldestAgoDate ON fund.id = oldestAgoDate.fund_id
+        LEFT JOIN fund_histo_data oldestAgo ON 
+          oldestAgo.date = oldestAgoDate.min_date AND oldestAgo.fund_id = fund.id
+
       WHERE fund_histo_data.date >= {from: Date} AND fund_histo_data.date <= {to: Date}
       GROUP BY 
         fund.name, 
-        sixMonthAgo.low_value, 
-        sixMonthAgo.date,
-        thirtyDaysAgo.low_value, 
-        thirtyDaysAgo.date,
+        yesterday.high_value,
+        yesterday.date,
         sevenDaysAgo.low_value, 
         sevenDaysAgo.date,
-        yesterday.high_value,
-        yesterday.date
+        thirtyDaysAgo.low_value, 
+        thirtyDaysAgo.date,
+        sixMonthAgo.low_value, 
+        sixMonthAgo.date,
+        oneYearAgo.low_value, 
+        oneYearAgo.date,
+        twoYearAgo.low_value, 
+        twoYearAgo.date,
+        oldestAgo.low_value, 
+        oldestAgo.date
       ORDER BY ((yesterday.high_value)/thirtyDaysAgo.low_value) DESC;`, // rank based on delta on 30 days
     format: "JSON",
     query_params: {
@@ -117,6 +147,8 @@ export const getFundsRanking = async ({
       sevenDaysAgo: dayjs().subtract(7, "d").format("YYYY-MM-DD"),
       thirtyDaysAgo: dayjs().subtract(30, "d").format("YYYY-MM-DD"),
       sixMonthAgo: dayjs().subtract(6, "month").format("YYYY-MM-DD"),
+      oneYearAgo: dayjs().subtract(12, "month").format("YYYY-MM-DD"),
+      twoYearAgo: dayjs().subtract(24, "month").format("YYYY-MM-DD"),
       yesterday: dayjs().subtract(1, "d").format("YYYY-MM-DD"),
     },
   });

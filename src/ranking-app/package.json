@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@clickhouse/client": "^0.2.3",
+    "@nextui-org/react": "^2.3.6",
+    "@nextui-org/system": "^2.1.2",
+    "@nextui-org/theme": "^2.2.3",
+    "@nextui-org/tooltip": "^2.0.33",
     "@tanstack/react-query": "^4.36.1",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",
     "echarts-for-react": "^3.0.2",
+    "framer-motion": "^11.2.4",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18"

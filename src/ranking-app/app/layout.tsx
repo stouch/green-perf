@@ -1,8 +1,9 @@
-'use client'
+"use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { NextUIProvider } from "@nextui-org/react";
 
 const queryClient = new QueryClient();
 
@@ -15,10 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+      <body className={`dark ${inter.className}`}>
+        <NextUIProvider>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </NextUIProvider>
       </body>
     </html>
   );

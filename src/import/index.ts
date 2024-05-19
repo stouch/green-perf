@@ -127,4 +127,4 @@ const initialScrape = async (from: string) => {
 };
 
 // Run the initial import
-initialScrape("2023-06-01");
+initialScrape(process.env.FROM || "2023-06-01");
