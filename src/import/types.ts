@@ -6,11 +6,10 @@ export type AssetHistoryDay = {
   closeValue: number;
 };
 
-export type Asset = {
+export type AssetHistory = {
   id: string;
-  url: string;
   name: string;
   history: AssetHistoryDay[];
 };
 
-export type AssetScrapeSource = "yahoo"; // | "custom" ?
+export type AssetImportSource = "yahoo" | "boursorama" | "quantalys"; // | "custom" ?

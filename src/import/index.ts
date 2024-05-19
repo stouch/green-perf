@@ -1,42 +1,33 @@
-import yahooFinance from "yahoo-finance2";
-import dayjs from "dayjs";
-import { Asset, AssetHistoryDay, AssetScrapeSource } from "./types";
+import { AssetHistory, AssetImportSource } from "./types";
 import { chClient } from "./db-client";
+import {
+  importBoursoramaHistory,
+  importQuantalysHistory,
+  importYahooHistory,
+} from "./data-source-api";
 
-const yahooHistoryScrape = async (
-  tickerId: string,
-  periodStart: string
-): Promise<AssetHistoryDay[]> => {
-  const results = await yahooFinance.historical(tickerId, {
-    period1: periodStart,
-  });
-  return results.map((r) => ({
-    date: dayjs(r.date).format("YYYY-MM-DD"),
-    openValue: r.open,
-    highValue: r.high,
-    lowValue: r.low,
-    closeValue: r.close,
-  }));
-};
-
-const fundScrape = async (
-  source: AssetScrapeSource,
+const fetchFundHistoryData = async (
+  source: AssetImportSource,
   periodStart: string,
   tickerId: string,
-  name: string,
-  metaUrl: string
-): Promise<Asset> => {
+  name: string
+): Promise<AssetHistory> => {
   const historyData =
-    source === "yahoo" ? await yahooHistoryScrape(tickerId, periodStart) : []; // May have other sources
+    source === "yahoo"
+      ? await importYahooHistory(tickerId, periodStart)
+      : source === "boursorama"
+      ? await importBoursoramaHistory(tickerId, periodStart)
+      : source === "quantalys"
+      ? await importQuantalysHistory(tickerId, periodStart)
+      : []; // May have other sources
   return {
     id: tickerId,
-    url: metaUrl,
     name,
     history: historyData,
   };
 };
 
-const initialScrape = async (from: string) => {
+const initialImport = async (from: string) => {
   console.log(`Initial import from ${from}...`);
 
   // DROP TABLES:
@@ -53,11 +44,14 @@ const initialScrape = async (from: string) => {
 
   // Create tables
   await chClient().command({
+    // TODO: would like to use experimental JSON feature of clickhouse <3
     query: `
       CREATE TABLE IF NOT EXISTS fund
       (
         id String,
-        name String
+        name String,
+        source String,
+        specs String 
       )
       ENGINE MergeTree()
       ORDER BY (id)
@@ -81,13 +75,18 @@ const initialScrape = async (from: string) => {
 
   // Based on our listing ..
   const funds: Array<
-    [AssetScrapeSource, string, string, string]
+    [
+      AssetImportSource, // [0]
+      string, // fund ticker id [1]
+      string, // fund name [2]
+      Record<string, string | string[]> // fund specs [3]
+    ]
   > = require("./funds.json");
 
   // .. we fetch initial data:
-  const assets: Array<Promise<Asset>> = funds.map(async (fund) => {
+  const assets: Array<Promise<AssetHistory>> = funds.map(async (fund) => {
     console.log(`Import asset ${fund[0]}/${fund[2]}...`);
-    return await fundScrape(fund[0], from, fund[1], fund[2], fund[3]);
+    return await fetchFundHistoryData(fund[0], from, fund[1], fund[2]);
   });
 
   // Insert initial data
@@ -97,9 +96,11 @@ const initialScrape = async (from: string) => {
   await chClient().insert({
     table: "fund",
     values: [
-      ...funds.map((asset) => ({
-        id: asset[1],
-        name: asset[2],
+      ...funds.map((fund) => ({
+        source: fund[0],
+        id: fund[1],
+        name: fund[2],
+        specs: JSON.stringify(fund[3]),
       })),
     ],
     format: "JSONEachRow",
@@ -127,4 +128,4 @@ const initialScrape = async (from: string) => {
 };
 
 // Run the initial import
-initialScrape(process.env.FROM || "2023-06-01");
+initialImport(process.env.FROM || "2022-06-01");

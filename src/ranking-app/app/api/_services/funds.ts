@@ -54,7 +54,10 @@ export const getFundsRanking = async ({
   const periodSummariesQuery = await chClient().query({
     query: `
       SELECT 
+        fund.id as id,
         fund.name as name,
+        fund.source as source,
+        simpleJSONExtractBool(fund.specs, 'is_greenfin') as is_greenfin,
         MIN(fund_histo_data.low_value) as period_low_value, 
         MAX(fund_histo_data.high_value) as period_high_value,
 
@@ -124,7 +127,10 @@ export const getFundsRanking = async ({
 
       WHERE fund_histo_data.date >= {from: Date} AND fund_histo_data.date <= {to: Date}
       GROUP BY 
+        fund.id,
         fund.name, 
+        fund.source,
+        fund.specs, 
         yesterday.high_value,
         yesterday.date,
         sevenDaysAgo.low_value, 

@@ -12,9 +12,14 @@ export type FundData = {
   histo: FundDayData[];
 };
 
+export type FundSource = "yahoo" | "boursorama" | "quantalys";
+
 export type FundPeriodSummary = {
   position: number;
+  id: string;
   name: string;
+  source: FundSource;
+  is_greenfin: boolean;
   period_high_value: number;
   period_low_value: number;
   period_volume?: number;

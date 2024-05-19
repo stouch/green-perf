@@ -3,56 +3,130 @@
     "yahoo",
     "0P0001DKGF.F",
     "Covéa Terra A",
-    "https://particulier.covea-finance.fr/nos-fonds/covea-terra-c",
-    ["MAAF"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://particulier.covea-finance.fr/nos-fonds/covea-terra-c",
+      "banks": ["MAAF"]
+    }
   ],
   [
     "yahoo",
     "0P0001POG3.F",
     "Afer Actions Environnement",
-    "https://www.afer.fr/support/afer-actions-environnement/",
-    ["AFER"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://www.afer.fr/support/afer-actions-environnement/",
+      "banks": ["AFER"]
+    }
   ],
   [
     "yahoo",
     "0P00016Q7A.F",
     "Agipi Obligations Monde",
-    "https://fonds.axa-im.fr/fr/particuliers/fund/agipi-obligations-monde-capitalisation-eur",
-    ["AXA"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://fonds.axa-im.fr/fr/particuliers/fund/agipi-obligations-monde-capitalisation-eur",
+      "banks": ["AXA"]
+    }
   ],
   [
     "yahoo",
     "0P00019M8W.F",
     "Allianz Green Bond",
-    "https://fr.allianzgi.com/fr-fr/conseillersfinanciers/nos-opcvm/fonds/liste/allianz-green-bond-at-eur?nav=overview",
-    ["ALLIANZ"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://fr.allianzgi.com/fr-fr/conseillersfinanciers/nos-opcvm/fonds/liste/allianz-green-bond-at-eur?nav=overview",
+      "banks": ["ALLIANZ"]
+    }
+  ],
+  [
+    "quantalys",
+    "2066847",
+    "Allianz Transition Energétique A",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["ALLIANZ"]
+    }
+  ],
+  [
+    "boursorama",
+    "MP-501109",
+    "Amundi Crédit Green Bonds PC",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001MYI6.F",
+    "Amundi Funds - Impact Green Bonds",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00001AE7.F",
+    "Amundi KBI Actions Monde Envirnmnt C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001HCAF.F",
+    "Amundi Rspnb Invest Imp Green Bds P C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
   ],
   [
     "yahoo",
     "0P0001LO04.F",
     "SG Mirova Obligations Vertes",
-    "https://sg29haussmann.societegenerale.fr/en/nos-fonds/mirova-obligations-vertes/",
-    ["SG"]
+    {
+      "is_greenfin": false,
+      "details_url": "https://sg29haussmann.societegenerale.fr/en/nos-fonds/mirova-obligations-vertes/",
+      "banks": ["SG"]
+    }
   ],
   [
     "yahoo",
     "0P0001LGGW.F",
     "SG Amundi Obligations Vertes",
-    "https://www.societegeneralegestion.fr/s2g_fr_fr/dl/doc/monthly-factsheet/FR0050000829/FRA/FRA/RETAIL/S2G",
-    ["SG"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://www.societegeneralegestion.fr/s2g_fr_fr/dl/doc/monthly-factsheet/FR0050000829/FRA/FRA/RETAIL/S2G",
+      "banks": ["SG"]
+    }
   ],
   [
     "yahoo",
     "0P00012TVQ.F",
     "LCL Actions Monde Environnement",
-    "https://priips.predica.com/lcl/DIS_FR0011689447.pdf",
-    ["LCL"]
+    {
+      "is_greenfin": true,
+      "details_url": "https://priips.predica.com/lcl/DIS_FR0011689447.pdf",
+      "banks": ["LCL"]
+    }
   ],
   [
     "yahoo",
     "0P0001DKGB.F",
     "Covéa Solis A",
-    "https://particulier.covea-finance.fr/nos-fonds/covea-solis-c",
-    ["MAAF"]
+    {
+      "is_greenfin": false,
+      "details_url": "https://particulier.covea-finance.fr/nos-fonds/covea-solis-c",
+      "banks": ["MAAF"]
+    }
   ]
 ]
