@@ -90,6 +90,66 @@
     }
   ],
   [
+    "boursorama",
+    "0P0001IKWG",
+    "Axa Sélection Obligations Monde",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AXA"]
+    }
+  ],
+  [
+    "quantalys",
+    "2024199",
+    "AXA WF ACT Dynamic Green Bds A",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AXA"]
+    }
+  ],
+  [
+    "quantalys",
+    "823314",
+    "AXA WF ACT Green Bonds A",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["AXA"]
+    }
+  ],
+  [
+    "quantalys",
+    "526274",
+    "BNP Paribas Green Bond",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["BNP"]
+    }
+  ],
+  [
+    "quantalys",
+    "913195",
+    "CapEnergie 3",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["OMNES"]
+    }
+  ],
+  [
+    "boursorama",
+    "0P0001MRMU",
+    "CM AM Global Climate Change",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["CREDITMUTUEL"]
+    }
+  ],
+  [
     "yahoo",
     "0P0001LO04.F",
     "SG Mirova Obligations Vertes",
