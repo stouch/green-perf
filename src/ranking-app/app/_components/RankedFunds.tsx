@@ -147,7 +147,7 @@ export const RankedFunds = () => {
         </div>
       </div>
       {rankingData.isLoading ? <div className="mt-4">Chargement...</div> : ""}
-      {rankedData.map((summary) => {
+      {rankedData.map((summary, idx) => {
         const oneWeekDelta = deltaBetweenInPercent({
           from: summary.seven_days_low_value,
           to: summary.yesterday_high_value,
@@ -200,7 +200,7 @@ export const RankedFunds = () => {
 
         return (
           <div key={summary.name} className="flex flex-row gap-3 my-4 text-sm">
-            <div className={wPerCol[0]}>{summary.position}</div>
+            <div className={wPerCol[0]}>{idx + 1}</div>
             <div className={wPerCol[1]}>
               {summary.name}
               <br />

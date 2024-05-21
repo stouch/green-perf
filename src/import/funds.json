@@ -1,16 +1,6 @@
 [
   [
     "yahoo",
-    "0P0001DKGF.F",
-    "Covéa Terra A",
-    {
-      "is_greenfin": true,
-      "details_url": "https://particulier.covea-finance.fr/nos-fonds/covea-terra-c",
-      "banks": ["MAAF"]
-    }
-  ],
-  [
-    "yahoo",
     "0P0001POG3.F",
     "Afer Actions Environnement",
     {
@@ -32,7 +22,7 @@
   [
     "yahoo",
     "0P00019M8W.F",
-    "Allianz Green Bond",
+    "Allianz Green Bond AT",
     {
       "is_greenfin": true,
       "details_url": "https://fr.allianzgi.com/fr-fr/conseillersfinanciers/nos-opcvm/fonds/liste/allianz-green-bond-at-eur?nav=overview",
@@ -132,7 +122,7 @@
   [
     "quantalys",
     "913195",
-    "CapEnergie 3",
+    "CapEnergie 3 A",
     {
       "is_greenfin": true,
       "details_url": "",
@@ -142,11 +132,231 @@
   [
     "boursorama",
     "0P0001MRMU",
-    "CM AM Global Climate Change",
+    "CM AM Global Climate Change IC",
     {
       "is_greenfin": true,
       "details_url": "",
       "banks": ["CREDITMUTUEL"]
+    }
+  ],
+  [
+    "boursorama",
+    "0P0001CD1H",
+    "CM-AM Green Bonds IC",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["CREDITMUTUEL"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001DKGF.F",
+    "Covéa Terra A",
+    {
+      "is_greenfin": true,
+      "details_url": "https://particulier.covea-finance.fr/nos-fonds/covea-terra-c",
+      "banks": ["MAAF"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001DXUA.F",
+    "Dorval European Climate Initiative NC",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["DORVAL"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000KBTV.F",
+    "Ecofi Agir pour le climat C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["ECOFI"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001OR55.F",
+    "Egamo Obligation Euro I",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["EGAMO"]
+    }
+  ],
+  [
+    "quantalys",
+    "2047133",
+    "Eiffel Infrastructures Vertes",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["EIFFEL"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00000PLW.F",
+    "Federal Global Green Bonds P",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["FEDERAL"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001J3XI.F",
+    "GS Corporate Green Bond I Cap",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["GOLDMANSACHS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001BJ5R.F",
+    "GS Green Bonds",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["GOLDMANSACHS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001H3XX.F",
+    "GS Green Bond Short Duration",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["GOLDMANSACHS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001H3XX.F",
+    "GS Green Bond Short Duration",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["GOLDMANSACHS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001QOOK.F",
+    "GS Sovereign Green Bond",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["GOLDMANSACHS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00017MJO.F",
+    "HSBC EE Actions Europe Transition Verte E",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["HSBC"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P000011JV.F",
+    "HSBC RIF Europe Equity Green Transition AC",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["HSBC"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001AFGC.F",
+    "iShares Green Bd Index Fd (IE) Inst Acc",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["BLACKROCK"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001DK5M.F",
+    "La Française LUX – Inflection Point Carbon Impact Global R",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["LAFRANCAISE"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00012TVQ.F",
+    "LCL Actions Monde Environnement C",
+    {
+      "is_greenfin": true,
+      "details_url": "https://priips.predica.com/lcl/DIS_FR0011689447.pdf",
+      "banks": ["LCL"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00000GPI.F",
+    "MAM Impact Green Bonds C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MEESCHAERT"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001LZLW.F",
+    "Mandarine Global Transition R",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MANDARINE"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001J2KD.F",
+    "M Climate Solutions C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MONTPENSIER"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000G6X1.F",
+    "Mirova Europe Environnement C",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MIROVA"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00011IV8.F",
+    "Mirova Europe Environmental Eq R/A",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MIROVA"]
     }
   ],
   [
@@ -171,22 +381,22 @@
   ],
   [
     "yahoo",
-    "0P00012TVQ.F",
-    "LCL Actions Monde Environnement",
-    {
-      "is_greenfin": true,
-      "details_url": "https://priips.predica.com/lcl/DIS_FR0011689447.pdf",
-      "banks": ["LCL"]
-    }
-  ],
-  [
-    "yahoo",
     "0P0001DKGB.F",
     "Covéa Solis A",
     {
       "is_greenfin": false,
       "details_url": "https://particulier.covea-finance.fr/nos-fonds/covea-solis-c",
       "banks": ["MAAF"]
+    }
+  ],
+  [
+    "quantalys",
+    "65823",
+    "Pictet Gbl Env Opp R",
+    {
+      "is_greenfin": false,
+      "details_url": "",
+      "banks": ["PICTET"]
     }
   ]
 ]
