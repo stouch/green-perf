@@ -5,6 +5,7 @@ import {
   FundPeriodSummary,
 } from "../../../types/shared/fund";
 import dayjs from "dayjs";
+import { banks } from "./banks-db";
 
 export const getFund = async (fundId: string): Promise<FundData> => {
   const fundDataQuery = await chClient().query({
@@ -58,6 +59,7 @@ export const getFundsRanking = async ({
         fund.name as name,
         fund.source as source,
         simpleJSONExtractBool(fund.specs, 'is_greenfin') as is_greenfin,
+        JSONExtract(fund.specs, 'banks', 'Array(String)') as available_banks,
         MIN(fund_histo_data.low_value) as period_low_value, 
         MAX(fund_histo_data.high_value) as period_high_value,
 
@@ -166,5 +168,8 @@ export const getFundsRanking = async ({
   return rows.data.map((row, rowIdx) => ({
     ...row,
     position: rowIdx + 1,
+    available_banks: row.available_banks.map(
+      (availableBankIdentifier) => banks[availableBankIdentifier].name
+    ),
   }));
 };

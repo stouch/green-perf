@@ -115,13 +115,14 @@ export const RankedFunds = () => {
     "w-16",
     "w-16",
     "w-16",
+    "w-32",
   ];
   return (
     <div className="w-full">
       <div className="flex flex-row gap-3 my-4 text-sm text-gray-300">
         <div className={wPerCol[0]}>#</div>
         <div className={wPerCol[1]}>Nom</div>
-        <div className={wPerCol[2]}>
+        <div className={`${wPerCol[2]} text-center`}>
           <span className="underline">
             <a href="https://www.ecologie.gouv.fr/label-greenfin">Green</a>
           </span>
@@ -145,6 +146,7 @@ export const RankedFunds = () => {
         <div className={wPerCol[7]} onClick={() => setSortKey(SortKey.TWO_Y)}>
           2 ans{sortKey === SortKey.TWO_Y ? " ▲" : ""}
         </div>
+        <div className={wPerCol[8]}>Banque(s) disp.</div>
       </div>
       {rankingData.isLoading ? <div className="mt-4">Chargement...</div> : ""}
       {rankedData.map((summary, idx) => {
@@ -201,21 +203,31 @@ export const RankedFunds = () => {
         return (
           <div key={summary.name} className="flex flex-row gap-3 my-4 text-sm">
             <div className={wPerCol[0]}>{idx + 1}</div>
-            <div className={wPerCol[1]}>
-              {summary.name}
-              <br />
+            <div className={`${wPerCol[1]} truncate`}>
+              <Tooltip
+                content={summary.name}
+                offset={0}
+                placement="right"
+                delay={10}
+                closeDelay={10}
+                showArrow={true}
+              >
+                <div className="text-ellipsis overflow-hidden">
+                  {summary.name}
+                </div>
+              </Tooltip>
               <FundLink source={summary.source} fundId={summary.id}>
                 <small className="text-gray-200">
                   {summary.source} - {summary.id}
                 </small>
               </FundLink>
             </div>
-            <div className={wPerCol[2]}>
+            <div className={`${wPerCol[2]} text-center`}>
               {summary.is_greenfin ? "🌱" : "❌"}
             </div>
             <div className={`${wPerCol[3]} flex flex-row gap-2 items-center`}>
               <RankingTooltip content={oneWeekDeltaLabel}>
-                <span className={oneWeekDelta > 0 ? "text-green" : "text-red"}>
+                <span className={oneWeekDelta > 0 ? "text-green" : "text-red-500"}>
                   {oneWeekDelta > 0 ? "+" : ""}
                   {oneWeekDelta}%
                 </span>
@@ -224,7 +236,7 @@ export const RankedFunds = () => {
             </div>
             <div className={`${wPerCol[4]} flex flex-row items-center`}>
               <RankingTooltip content={oneMonthDeltaLabel}>
-                <span className={oneMonthDelta > 0 ? "text-green" : "text-red"}>
+                <span className={oneMonthDelta > 0 ? "text-green" : "text-red-500"}>
                   {oneMonthDelta > 0 ? "+" : ""}
                   {oneMonthDelta}%
                 </span>
@@ -233,7 +245,7 @@ export const RankedFunds = () => {
             </div>
             <div className={`${wPerCol[5]} flex flex-row gap-2 items-center`}>
               <RankingTooltip content={sixMonthDeltaLabel}>
-                <span className={sixMonthDelta > 0 ? "text-green" : "text-red"}>
+                <span className={sixMonthDelta > 0 ? "text-green" : "text-red-500"}>
                   {sixMonthDelta > 0 ? "+" : ""}
                   {sixMonthDelta}%
                 </span>
@@ -242,7 +254,7 @@ export const RankedFunds = () => {
             </div>
             <div className={`${wPerCol[6]} flex flex-row gap-2 items-center`}>
               <RankingTooltip content={oneYearDeltaLabel}>
-                <span className={oneYearDelta > 0 ? "text-green" : "text-red"}>
+                <span className={oneYearDelta > 0 ? "text-green" : "text-red-500"}>
                   {oneYearDelta > 0 ? "+" : ""}
                   {oneYearDelta}%
                 </span>
@@ -251,12 +263,28 @@ export const RankedFunds = () => {
             </div>
             <div className={`${wPerCol[7]} flex flex-row gap-2 items-center`}>
               <RankingTooltip content={twoYearDeltaLabel}>
-                <span className={twoYearsDelta > 0 ? "text-green" : "text-red"}>
+                <span className={twoYearsDelta > 0 ? "text-green" : "text-red-500"}>
                   {twoYearsDelta > 0 ? "+" : ""}
                   {twoYearsDelta}%
                 </span>
                 {/*<small>(2a)</small>*/}
               </RankingTooltip>
+            </div>
+            <div
+              className={`${wPerCol[8]} flex flex-row gap-2 items-center truncate`}
+            >
+              <Tooltip
+                content={summary.available_banks.join(",")}
+                offset={0}
+                placement="right"
+                delay={10}
+                closeDelay={10}
+                showArrow={true}
+              >
+                <div className="text-ellipsis overflow-hidden">
+                  {summary.available_banks.join(",")}
+                </div>
+              </Tooltip>
             </div>
           </div>
         );

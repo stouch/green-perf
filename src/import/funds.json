@@ -361,12 +361,92 @@
   ],
   [
     "yahoo",
-    "0P0001LO04.F",
-    "SG Mirova Obligations Vertes",
+    "0P0001ANGH.F",
+    "Mirova Global Green Bd I/A",
     {
-      "is_greenfin": false,
-      "details_url": "https://sg29haussmann.societegenerale.fr/en/nos-fonds/mirova-obligations-vertes/",
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["MIROVA"]
+    }
+  ],
+  [
+    "boursorama",
+    "0P0001ODZM",
+    "Moorea Fd Clmt Actn RE",
+    {
+      "is_greenfin": true,
+      "details_url": "",
       "banks": ["SG"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001BMT6.F",
+    "BNP Paribas Funds Green Bond",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["BNP"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00000OYN.F",
+    "ODDO BHF Green Bond CR",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["ODDO_BHF"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000CPJ1.F",
+    "Ofi Invest Act4 Green Future",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["OFI_AM"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001PQ7Y.F",
+    "Ostrum Global Sustainable Transit Bds Q",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["OSTRUM_AM"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001CWGN.F",
+    "Sienna Obligations Vertes ISR I",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["SIENNA"]
+    }
+  ],
+  [
+    "quantalys",
+    "762723",
+    "SISF Glb Energy Transition A Acc",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["SCHRODERS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001MI1A.F",
+    "Schroder International Selection Fund BlueOrchard Emerging Markets Climate Bond",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["SCHRODER_IM"]
     }
   ],
   [
@@ -376,6 +456,46 @@
     {
       "is_greenfin": true,
       "details_url": "https://www.societegeneralegestion.fr/s2g_fr_fr/dl/doc/monthly-factsheet/FR0050000829/FRA/FRA/RETAIL/S2G",
+      "banks": ["SG"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00005W9S.F",
+    "Stratégie Obligations Durables",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["APICIL_AM"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00016RHQ.F",
+    "Sycomore Fund Europe Eco Solutions R",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["SYCOMORE"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000KAHQ.F",
+    "Tocqueville Environnement ISR D",
+    {
+      "is_greenfin": true,
+      "details_url": "",
+      "banks": ["LBPAM"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001LO04.F",
+    "SG Mirova Obligations Vertes",
+    {
+      "is_greenfin": false,
+      "details_url": "https://sg29haussmann.societegenerale.fr/en/nos-fonds/mirova-obligations-vertes/",
       "banks": ["SG"]
     }
   ],

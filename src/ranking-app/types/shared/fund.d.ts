@@ -17,8 +17,9 @@ export type FundSource = "yahoo" | "boursorama" | "quantalys";
 export type FundPeriodSummary = {
   position: number;
   id: string;
-  name: string;
-  source: FundSource;
+  name: string; // eg: "LCL Actions Monde Environnement C"
+  available_banks: string[]; // eg: ["LCL"]
+  source: FundSource; // eg: "yahoo"
   is_greenfin: boolean;
   period_high_value: number;
   period_low_value: number;
