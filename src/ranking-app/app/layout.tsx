@@ -15,7 +15,7 @@ const setIsDarkInStorage = (isDarkTheme: boolean) => {
 };
 const getIsDarkInStorage = () => {
   return typeof window !== "undefined" &&
-    window.localStorage.getItem("darkMode") !== undefined
+    window.localStorage.getItem("darkMode") !== null
     ? window.localStorage.getItem("darkMode") === "1"
     : true; // default is true.
 };
