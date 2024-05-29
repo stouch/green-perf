@@ -195,7 +195,7 @@ export const RankedFunds = () => {
           )} (${dayjs(summary.yesterday_date).format("D/M/YY")})`;
 
           const oneMonthDeltaLabel = `${roundValues(
-            summary.seven_days_low_value
+            summary.thirty_days_low_value
           )} (${dayjs(summary.thirty_days_date).format(
             "D/M/YY"
           )}) -> ${yesterdayToLabel})`;
@@ -248,7 +248,7 @@ export const RankedFunds = () => {
               <div className={`${wPerCol[2]} flex items-center justify-center`}>
                 {summary.is_greenfin ? "🌱" : "❌"}
               </div>
-              <div className={`${wPerCol[4]} flex flex-row items-center`}>
+              <div className={`${wPerCol[3]} flex flex-row items-center`}>
                 {oneMonthDelta !== null && (
                   <RankingMetric
                     metric={oneMonthDelta}
@@ -256,7 +256,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[5]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[4]} flex flex-row gap-2 items-center`}>
                 {sixMonthDelta !== null && (
                   <RankingMetric
                     metric={sixMonthDelta}
@@ -264,7 +264,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[6]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[5]} flex flex-row gap-2 items-center`}>
                 {oneYearDelta !== null && (
                   <RankingMetric
                     metric={oneYearDelta}
@@ -272,7 +272,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[7]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[6]} flex flex-row gap-2 items-center`}>
                 {twoYearsDelta !== null && (
                   <RankingMetric
                     metric={twoYearsDelta}
