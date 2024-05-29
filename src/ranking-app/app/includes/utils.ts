@@ -3,12 +3,13 @@ export const roundDecimal = (n: number, d: number = 3) => {
 };
 
 // Delta en pourcents entre `from` et `to`
+// If null, that means there were no data found before `from` (recent fund).
 export const deltaBetweenInPercent = ({
   from,
   to,
 }: {
-  from: number;
+  from: number | -1;
   to: number;
-}) => {
-  return roundDecimal(-(1 - to / from) * 100, 2);
+}): number | null => {
+  return from > -1 ? roundDecimal(-(1 - to / from) * 100, 2) : null;
 };

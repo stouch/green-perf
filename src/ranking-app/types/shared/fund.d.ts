@@ -35,7 +35,9 @@ export type FundPeriodSummary = {
   six_month_low_value: number;
   six_month_date: Date;
   one_year_low_value: number;
-  one_year_date: Date;
+  one_year_date: Date | null;
   two_year_low_value: number;
-  two_year_date: Date;
+  two_year_date: Date | null;
+  three_year_low_value: number;
+  three_year_date: Date | null;
 };

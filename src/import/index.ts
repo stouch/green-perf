@@ -128,4 +128,4 @@ const initialImport = async (from: string) => {
 };
 
 // Run the initial import
-initialImport(process.env.FROM || "2022-06-01");
+initialImport(process.env.FROM || "2021-05-01");

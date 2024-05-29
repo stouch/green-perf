@@ -10,6 +10,10 @@ export const importYahooHistory = async (
   const results = await yahooFinance.historical(tickerId, {
     period1: periodStart,
   });
+  if (!results || results.length === 0) {
+    console.log("No yahoo data !");
+    return [];
+  }
   return results.map((r) => ({
     date: dayjs(r.date).format("YYYY-MM-DD"),
     openValue: r.open,
@@ -26,10 +30,14 @@ export const importBoursoramaHistory = async (
   let daysNb = dayjs().diff(periodStart, "day");
   if (daysNb > 365) {
     if (daysNb <= 730) {
+      // on est entre 1 et 2 ans:
       daysNb = 730;
     } else if (daysNb <= 1095) {
+      // on est entre 2 et 3 ans:
       daysNb = 1095;
-    } // TODO: find more data?
+    } else {
+      daysNb = 1825; // TODO: find more data?
+    }
   }
   const results = (
     await axios.get<{
@@ -50,6 +58,11 @@ export const importBoursoramaHistory = async (
     )
   ).data;
   if (!results.d) {
+    console.log("No boursorama data !");
+    return [];
+  }
+  if (!results.d.QuoteTab) {
+    console.log("No boursorama data !");
     return [];
   }
   return results.d.QuoteTab.map((r, dayIdx) => {
@@ -96,11 +109,13 @@ export const importQuantalysHistory = async (
     )
   ).data;
   if (!results.graph) {
+    console.log("No quantalys data !");
     return [];
   }
   const parsedGraph: { dataProvider: { x: string; y_0: number }[] } =
     JSON.parse(results.graph);
   if (!parsedGraph) {
+    console.log("No quantalys data !");
     return [];
   }
   return parsedGraph.dataProvider.map((r, dayIdx) => ({
