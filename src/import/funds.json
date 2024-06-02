@@ -165,6 +165,7 @@
     "Dorval European Climate Initiative NC",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["DORVAL"]
     }
@@ -315,6 +316,7 @@
     "MAM Impact Green Bonds C",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["MEESCHAERT"]
     }
@@ -335,6 +337,7 @@
     "M Climate Solutions C",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["MONTPENSIER"]
     }
@@ -365,6 +368,7 @@
     "Mirova Global Green Bd I/A",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["MIROVA"]
     }
@@ -395,6 +399,7 @@
     "ODDO BHF Green Bond CR",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["ODDO_BHF"]
     }
@@ -405,6 +410,7 @@
     "Ofi Invest Act4 Green Future",
     {
       "is_greenfin": true,
+      "is_ggplanet": true,
       "details_url": "",
       "banks": ["OFI_AM"]
     }
@@ -481,6 +487,28 @@
   ],
   [
     "yahoo",
+    "0P00000QJG.F",
+    "Mirova Obli Euro RC",
+    {
+      "is_greenfin": false,
+      "is_ggplanet": true,
+      "details_url": "",
+      "banks": ["MIROVA"]
+    }
+  ],
+  [
+    "quantalys",
+    "912754",
+    "RobecoSAM Smrt Energy Equities D",
+    {
+      "is_greenfin": false,
+      "is_ggplanet": true,
+      "details_url": "",
+      "banks": ["ROBECCO"]
+    }
+  ],
+  [
+    "yahoo",
     "0P0000KAHQ.F",
     "Tocqueville Environnement ISR D",
     {
@@ -517,6 +545,28 @@
       "is_greenfin": false,
       "details_url": "",
       "banks": ["PICTET"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000PTZO.F",
+    "Pictet - Global Envir Opps P",
+    {
+      "is_greenfin": false,
+      "is_ggplanet": true,
+      "details_url": "",
+      "banks": ["PICTET"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001FFDT.F",
+    "DNCA Invest Beyond Semperosa I",
+    {
+      "is_greenfin": false,
+      "is_ggplanet": true,
+      "details_url": "",
+      "banks": ["DNCA_FINANCE"]
     }
   ]
 ]

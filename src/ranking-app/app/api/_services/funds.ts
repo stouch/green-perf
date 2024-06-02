@@ -59,6 +59,7 @@ export const getFundsRanking = async ({
         fund.name as name,
         fund.source as source,
         simpleJSONExtractBool(fund.specs, 'is_greenfin') as is_greenfin,
+        simpleJSONExtractBool(fund.specs, 'is_ggplanet') as is_ggplanet,
         JSONExtract(fund.specs, 'banks', 'Array(String)') as available_banks,
         MIN(fund_histo_data.low_value) as period_low_value, 
         MAX(fund_histo_data.high_value) as period_high_value,

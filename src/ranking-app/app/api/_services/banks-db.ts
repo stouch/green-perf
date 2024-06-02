@@ -98,4 +98,10 @@ export const banks: Record<string, { name: string }> = {
   PICTET: {
     name: "Pictet Asset Management",
   },
+  ROBECCO: {
+    name: "Robeco Institutional Asset Management",
+  },
+  DNCA_FINANCE: {
+    name: "DNCA Invest Beyond Semperosa I",
+  },
 };

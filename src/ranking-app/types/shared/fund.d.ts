@@ -21,6 +21,7 @@ export type FundPeriodSummary = {
   available_banks: string[]; // eg: ["LCL"]
   source: FundSource; // eg: "yahoo"
   is_greenfin: boolean;
+  is_ggplanet: boolean;
   period_high_value: number;
   period_low_value: number;
   period_volume?: number;

@@ -124,7 +124,8 @@ export const RankedFunds = () => {
   const wPerCol = [
     "w-10",
     "flex-1",
-    "w-20",
+    "w-12",
+    "w-12",
     "w-16",
     "w-16",
     "w-16",
@@ -140,32 +141,47 @@ export const RankedFunds = () => {
           <div className={wPerCol[1]}>Nom</div>
           <div className={`${wPerCol[2]} text-center`}>
             <span className="underline">
-              <a href="https://www.ecologie.gouv.fr/label-greenfin">Green</a>
+              <a
+                href="https://www.ecologie.gouv.fr/label-greenfin"
+                target="_blank"
+              >
+                Green
+              </a>
             </span>
             *
           </div>
+          <div className={`${wPerCol[3]} text-center`}>
+            <span className="underline">
+              <a
+                href="https://green-got.com/articles/selection-assurance-vie"
+                target="_blank"
+              >
+                GG-P
+              </a>
+            </span>
+          </div>
           <div
-            className={wPerCol[3]}
+            className={wPerCol[4]}
             onClick={() => setSortKey(SortKey.THIRTY_D)}
           >
             30j{sortKey === SortKey.THIRTY_D ? " ▲" : ""}
           </div>
-          <div className={wPerCol[4]} onClick={() => setSortKey(SortKey.SIX_M)}>
+          <div className={wPerCol[5]} onClick={() => setSortKey(SortKey.SIX_M)}>
             6 mois{sortKey === SortKey.SIX_M ? " ▲" : ""}
           </div>
-          <div className={wPerCol[5]} onClick={() => setSortKey(SortKey.ONE_Y)}>
+          <div className={wPerCol[6]} onClick={() => setSortKey(SortKey.ONE_Y)}>
             1 an{sortKey === SortKey.ONE_Y ? " ▲" : ""}
           </div>
-          <div className={wPerCol[6]} onClick={() => setSortKey(SortKey.TWO_Y)}>
+          <div className={wPerCol[7]} onClick={() => setSortKey(SortKey.TWO_Y)}>
             2 ans{sortKey === SortKey.TWO_Y ? " ▲" : ""}
           </div>
           <div
-            className={wPerCol[7]}
+            className={wPerCol[8]}
             onClick={() => setSortKey(SortKey.THREE_Y)}
           >
             3 ans{sortKey === SortKey.THREE_Y ? " ▲" : ""}
           </div>
-          <div className={wPerCol[8]}>Banque(s) disp.</div>
+          <div className={wPerCol[9]}>Banque(s) disp.</div>
         </div>
         {rankingData.isLoading && <div className="mt-4">{`Chargement...`}</div>}
         {rankedData.map((summary, idx) => {
@@ -248,7 +264,25 @@ export const RankedFunds = () => {
               <div className={`${wPerCol[2]} flex items-center justify-center`}>
                 {summary.is_greenfin ? "🌱" : "❌"}
               </div>
-              <div className={`${wPerCol[3]} flex flex-row items-center`}>
+              <div className={`${wPerCol[3]} flex items-center justify-center`}>
+                {summary.is_ggplanet ? (
+                  <Tooltip
+                    content={
+                      "Proposé sur l'assurance-vie Green-Got (MAJ: 2024-06-02)"
+                    }
+                    offset={0}
+                    placement="right"
+                    delay={10}
+                    closeDelay={10}
+                    showArrow={true}
+                  >
+                    🦊
+                  </Tooltip>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className={`${wPerCol[4]} flex flex-row items-center`}>
                 {oneMonthDelta !== null && (
                   <RankingMetric
                     metric={oneMonthDelta}
@@ -256,7 +290,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[4]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[5]} flex flex-row gap-2 items-center`}>
                 {sixMonthDelta !== null && (
                   <RankingMetric
                     metric={sixMonthDelta}
@@ -264,7 +298,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[5]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[6]} flex flex-row gap-2 items-center`}>
                 {oneYearDelta !== null && (
                   <RankingMetric
                     metric={oneYearDelta}
@@ -272,7 +306,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[6]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[7]} flex flex-row gap-2 items-center`}>
                 {twoYearsDelta !== null && (
                   <RankingMetric
                     metric={twoYearsDelta}
@@ -280,7 +314,7 @@ export const RankedFunds = () => {
                   />
                 )}
               </div>
-              <div className={`${wPerCol[7]} flex flex-row gap-2 items-center`}>
+              <div className={`${wPerCol[8]} flex flex-row gap-2 items-center`}>
                 {threeYearsDelta !== null && (
                   <RankingMetric
                     metric={threeYearsDelta}
@@ -289,7 +323,7 @@ export const RankedFunds = () => {
                 )}
               </div>
               <div
-                className={`${wPerCol[8]} flex flex-row gap-2 items-center truncate`}
+                className={`${wPerCol[9]} flex flex-row gap-2 items-center truncate`}
               >
                 <Tooltip
                   content={summary.available_banks.join(",")}
