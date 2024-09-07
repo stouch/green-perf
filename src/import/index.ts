@@ -84,10 +84,11 @@ const initialImport = async (from: string) => {
   > = require("./funds.json");
 
   // .. we fetch initial data:
-  const assets: Array<Promise<AssetHistory>> = funds.map(async (fund) => {
+  const assets: Array<AssetHistory> = [];
+  for (const fund of funds) {
     console.log(`Import asset ${fund[0]}/${fund[2]}...`);
-    return await fetchFundHistoryData(fund[0], from, fund[1], fund[2]);
-  });
+    assets.push(await fetchFundHistoryData(fund[0], from, fund[1], fund[2]));
+  }
 
   // Insert initial data
 

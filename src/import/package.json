@@ -8,6 +8,6 @@
     "dayjs": "^1.11.10",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "yahoo-finance2": "^2.8.0"
+    "yahoo-finance2": "^2.11.3"
   }
 }
