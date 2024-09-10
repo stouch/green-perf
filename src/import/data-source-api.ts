@@ -3,13 +3,37 @@ import dayjs from "dayjs";
 import { AssetHistoryDay } from "./types";
 import axios from "axios";
 
+import { ChartResultArray } from "yahoo-finance2/dist/esm/src/modules/chart";
+import { HistoricalHistoryResult } from "yahoo-finance2/dist/esm/src/modules/historical";
+
+const convertToHistoricalResult = (
+  result: ChartResultArray
+): HistoricalHistoryResult => {
+  const quotes = result.quotes
+    .map((quote) => ({
+      ...quote,
+      open: quote.open || null,
+      high: quote.high || null,
+      low: quote.low || null,
+      close: quote.close || null,
+      volume: quote.volume || null,
+    }))
+    .filter(
+      (dailyQuote) => dailyQuote.low !== null || dailyQuote.high !== null
+    );
+  return quotes;
+};
+
 export const importYahooHistory = async (
   tickerId: string,
   periodStart: string
 ): Promise<AssetHistoryDay[]> => {
-  const results = await yahooFinance.historical(tickerId, {
-    period1: periodStart,
-  });
+  const results = convertToHistoricalResult(
+    await yahooFinance.chart(tickerId, {
+      period1: periodStart,
+    })
+  );
+
   if (!results || results.length === 0) {
     console.log("No yahoo data !");
     return [];
