@@ -9,7 +9,7 @@ import { HistoricalHistoryResult } from "yahoo-finance2/dist/esm/src/modules/his
 const convertToHistoricalResult = (
   result: ChartResultArray
 ): HistoricalHistoryResult => {
-  const quotes = result.quotes
+  return result.quotes
     .map((quote) => ({
       ...quote,
       open: quote.open || null,
@@ -21,7 +21,6 @@ const convertToHistoricalResult = (
     .filter(
       (dailyQuote) => dailyQuote.low !== null || dailyQuote.high !== null
     );
-  return quotes;
 };
 
 export const importYahooHistory = async (

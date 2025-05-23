@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from "react";
 
 const queryClient = new QueryClient();
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap", });
 
 const setIsDarkInStorage = (isDarkTheme: boolean) => {
   window.localStorage.setItem("darkMode", isDarkTheme ? "1" : "0");
