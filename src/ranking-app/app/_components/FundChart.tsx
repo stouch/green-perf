@@ -1,12 +1,19 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Candlestick } from "../../components/charts/Candlestick";
+import { LineChart } from "../../components/charts/Linechart";
 import { FundData } from "../../types/shared/fund";
 import { LoadingChart } from "../../components/charts/LoadingChart";
 import nextConfig from "../../next.config";
+import { Dayjs } from "dayjs";
 
-export const FundChart = ({ id }: { id: string }) => {
+export const FundChart = ({
+  id,
+  startDate,
+}: {
+  id: string;
+  startDate: Dayjs;
+}) => {
   const chartData = useQuery<FundData>(
     ["chart", id],
     async () => {
@@ -18,12 +25,16 @@ export const FundChart = ({ id }: { id: string }) => {
     }
   );
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       {chartData.isSuccess ? (
-        <div>
-          {chartData.data.name}
-          <Candlestick name={id} fundDays={chartData.data.histo} />
-        </div>
+        <>
+          {/* chartData.data.name */}
+          <LineChart
+            name={id}
+            fundDays={chartData.data.histo}
+            startDate={startDate}
+          />
+        </>
       ) : (
         <LoadingChart />
       )}

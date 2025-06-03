@@ -60,6 +60,7 @@ export const getFundsRanking = async ({
         fund.source as source,
         simpleJSONExtractBool(fund.specs, 'is_greenfin') as is_greenfin,
         simpleJSONExtractBool(fund.specs, 'is_ggplanet') as is_ggplanet,
+        simpleJSONExtractBool(fund.specs, 'is_goodvie') as is_goodvie,
         JSONExtract(fund.specs, 'banks', 'Array(String)') as available_banks,
         MIN(fund_histo_data.low_value) as period_low_value, 
         MAX(fund_histo_data.high_value) as period_high_value,
@@ -70,14 +71,16 @@ export const getFundsRanking = async ({
         sevenDaysAgo.date as seven_days_date,
         thirtyDaysAgo.low_value as thirty_days_low_value,
         thirtyDaysAgo.date as thirty_days_date,
-        sixMonthAgo.low_value as six_month_low_value,
-        sixMonthAgo.date as six_month_date,
+        if(sixMonthAgo.low_value > 0, sixMonthAgo.low_value, -1) as six_month_low_value,
+        if(sixMonthAgo.date != toDateTime('1970-01-01 00:00:00'), sixMonthAgo.date, NULL) as six_month_date,
         if(oneYearAgo.low_value > 0, oneYearAgo.low_value, -1) as one_year_low_value,
         if(oneYearAgo.date != toDateTime('1970-01-01 00:00:00'), oneYearAgo.date, NULL) as one_year_date,
         if(twoYearAgo.low_value > 0, twoYearAgo.low_value, -1) as two_year_low_value,
         if(twoYearAgo.date != toDateTime('1970-01-01 00:00:00'), twoYearAgo.date, NULL) as two_year_date,
         if(threeYearAgo.low_value > 0, threeYearAgo.low_value, -1) as three_year_low_value,
-        if(threeYearAgo.date != toDateTime('1970-01-01 00:00:00'), threeYearAgo.date, NULL) as three_year_date
+        if(threeYearAgo.date != toDateTime('1970-01-01 00:00:00'), threeYearAgo.date, NULL) as three_year_date,
+        if(fourYearAgo.low_value > 0, fourYearAgo.low_value, -1) as four_year_low_value,
+        if(fourYearAgo.date != toDateTime('1970-01-01 00:00:00'), fourYearAgo.date, NULL) as four_year_date
 
       FROM fund_histo_data 
         INNER JOIN fund ON fund.id = fund_histo_data.fund_id
@@ -132,6 +135,13 @@ export const getFundsRanking = async ({
           threeYearAgo.date = threeYearAgoDate.max_date AND threeYearAgo.fund_id = fund.id
 
         LEFT JOIN (
+          SELECT MAX(date) as max_date, fund_id FROM fund_histo_data 
+            WHERE date <= {fourYearAgo: Date} GROUP BY fund_id
+        ) fourYearAgoDate ON fund.id = fourYearAgoDate.fund_id
+        LEFT JOIN fund_histo_data fourYearAgo ON 
+          fourYearAgo.date = fourYearAgoDate.max_date AND fourYearAgo.fund_id = fund.id
+
+        LEFT JOIN (
           SELECT MIN(date) as min_date, fund_id FROM fund_histo_data GROUP BY fund_id
         ) oldestAgoDate ON fund.id = oldestAgoDate.fund_id
         LEFT JOIN fund_histo_data oldestAgo ON 
@@ -157,6 +167,8 @@ export const getFundsRanking = async ({
         twoYearAgo.date,
         threeYearAgo.low_value, 
         threeYearAgo.date,
+        fourYearAgo.low_value, 
+        fourYearAgo.date,
         oldestAgo.low_value, 
         oldestAgo.date
       ORDER BY ((yesterday.high_value)/thirtyDaysAgo.low_value) DESC;`, // rank based on delta on 30 days
@@ -170,6 +182,7 @@ export const getFundsRanking = async ({
       oneYearAgo: dayjs().subtract(12, "month").format("YYYY-MM-DD"),
       twoYearAgo: dayjs().subtract(24, "month").format("YYYY-MM-DD"),
       threeYearAgo: dayjs().subtract(36, "month").format("YYYY-MM-DD"),
+      fourYearAgo: dayjs().subtract(48, "month").format("YYYY-MM-DD"),
       yesterday: dayjs().subtract(1, "d").format("YYYY-MM-DD"),
     },
   });

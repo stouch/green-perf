@@ -165,6 +165,7 @@
     "Dorval European Climate Initiative NC",
     {
       "is_greenfin": true,
+      "is_goodvie": true,
       "is_ggplanet": true,
       "details_url": "",
       "banks": ["DORVAL"]
@@ -196,6 +197,7 @@
     "Eiffel Infrastructures Vertes",
     {
       "is_greenfin": true,
+      "is_goodvie": true,
       "details_url": "",
       "banks": ["EIFFEL"]
     }
@@ -241,11 +243,12 @@
     }
   ],
   [
-    "yahoo",
-    "0P0001H3XX.F",
-    "GS Green Bond Short Duration",
+    "quantalys",
+    "751539",
+    "GS Green Bond Shrt Dur R Cap EUR",
     {
       "is_greenfin": true,
+      "is_goodvie": true,
       "details_url": "",
       "banks": ["GOLDMANSACHS"]
     }
@@ -337,6 +340,7 @@
     "M Climate Solutions C",
     {
       "is_greenfin": true,
+      "is_goodvie": true,
       "is_ggplanet": true,
       "details_url": "",
       "banks": ["MONTPENSIER"]
@@ -567,6 +571,149 @@
       "is_ggplanet": true,
       "details_url": "",
       "banks": ["DNCA_FINANCE"]
+    }
+  ],
+  [
+    "yahoo",
+    "WAT.PA",
+    "Amundi MSCI Water ESG Screened UCITS ETF Dist (WAT.PA)",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001DHBA.F",
+    "Insertion Emplois Dynamique N (C)",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["NATIXIS"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P00007WGV.F",
+    "Pictet-Health",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["PICTET"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0000HX93.F",
+    "Pictet-Timber I EUR",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["PICTET"]
+    }
+  ],
+  [
+    "quantalys",
+    "124450",
+    "Mirova Europe Envir Equity N/A EUR",
+    {
+      "is_greenfin": true,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["MIROVA", "NATIXIS"]
+    }
+  ],
+  [
+    "quantalys",
+    "513071",
+    "BNPP Easy Low Cbn 100 Eur PAB UE EUR Acc",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["BNP"]
+    }
+  ],
+  [
+    "yahoo",
+    "ETFUSA.MI",
+    "Amundi MSCI USA UCITS ETF Dist",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "quantalys",
+    "733955",
+    "Amundi MSCI EM ESG Br Tr U ETF DR USD C",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "quantalys",
+    "2008740",
+    "Amundi Euro Governt Green Bd UE Acc EUR",
+    {
+      "is_greenfin": true,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["AMUNDI"]
+    }
+  ],
+  [
+    "boursorama",
+    "0P0001PBG4",
+    "Mirova Euro Short Term Sust Bd G/A EUR",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["MIROVA", "NATIXIS"]
+    }
+  ],
+  [
+    "quantalys",
+    "2021109",
+    "BNPP Easy JPMESG GreenSc&Sus IG€ Bd Pr C",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["BNP"]
+    }
+  ],
+  [
+    "quantalys",
+    "405331",
+    "BNPP Easy MSCI World SRI PAB Prv USD Acc",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["BNP"]
+    }
+  ],
+  [
+    "yahoo",
+    "0P0001V7DG.F",
+    "Goodvest Planet Ambition CS",
+    {
+      "is_greenfin": false,
+      "is_goodvie": true,
+      "details_url": "",
+      "banks": ["SYCOMORE"]
     }
   ]
 ]

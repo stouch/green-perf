@@ -49,7 +49,7 @@ export default function RootLayout({
           <QueryClientProvider client={queryClient}>
             <DangerBanner />
             <div className="relative min-h-screen px-4 md:px-24 pt-8">
-              <div className="w-full md:w-[920px] mx-auto relative text-black dark:text-white">
+              <div className="w-full md:w-[1100px] mx-auto relative text-black dark:text-white">
                 <div className="float-right pl-4 pt-1">
                   <a
                     className="underline text-black dark:text-white cursor-pointer"

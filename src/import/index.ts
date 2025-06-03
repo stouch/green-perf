@@ -116,10 +116,10 @@ const initialImport = async (from: string) => {
           asset.history.map((dayData) => ({
             fund_id: asset.id,
             date: dayData.date,
-            open_value: dayData.openValue,
-            high_value: dayData.highValue,
-            low_value: dayData.lowValue,
-            close_value: dayData.closeValue,
+            open_value: Math.round(dayData.openValue * 100) / 100,
+            high_value: Math.round(dayData.highValue * 100) / 100,
+            low_value: Math.round(dayData.lowValue * 100) / 100,
+            close_value: Math.round(dayData.closeValue * 100) / 100,
           }))
         )
         .flat(),

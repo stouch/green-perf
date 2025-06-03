@@ -53,6 +53,12 @@ export const banks: Record<string, { name: string }> = {
   MIROVA: {
     name: "Mirova",
   },
+  NATIXIS: {
+    name: "Natixis",
+  },
+  SYCOMORE: {
+    name: "Sycomore Asset Management",
+  },
   LCL: {
     name: "LCL",
   },

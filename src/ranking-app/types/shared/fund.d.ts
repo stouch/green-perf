@@ -21,7 +21,8 @@ export type FundPeriodSummary = {
   available_banks: string[]; // eg: ["LCL"]
   source: FundSource; // eg: "yahoo"
   is_greenfin: boolean;
-  is_ggplanet: boolean;
+  is_ggplanet: boolean; // GreenGot Planet
+  is_goodvie: boolean; // Goodvie (Goodvest)
   period_high_value: number;
   period_low_value: number;
   period_volume?: number;
@@ -41,4 +42,6 @@ export type FundPeriodSummary = {
   two_year_date: Date | null;
   three_year_low_value: number;
   three_year_date: Date | null;
+  four_year_low_value: number;
+  four_year_date: Date | null;
 };
