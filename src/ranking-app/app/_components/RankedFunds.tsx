@@ -9,6 +9,7 @@ import nextConfig from "../../next.config";
 import { Tooltip } from "@nextui-org/tooltip";
 import Image from "next/image";
 import { FundChart } from "./FundChart";
+import goodvestPng from '@/public/assets/goodvest.png';
 
 const roundValues = (value: number) => {
   return Math.round(value * 100) / 100; // round with 2 decimal (10^2);
@@ -362,11 +363,12 @@ export const RankedFunds = () => {
                       showArrow={true}
                     >
                       <Image
-                        src={`/assets/goodvest.png`}
+                        src={goodvestPng}
                         alt="Goodvie"
                         width={14}
                         height={14}
                         className="rounded"
+                        unoptimized
                       />
                     </Tooltip>
                   ) : (
