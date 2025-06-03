@@ -284,9 +284,8 @@ export const RankedFunds = () => {
           )}) -> ${yesterdayToLabel})`;
 
           return (
-            <div className="my-4">
+            <div className="my-4" key={summary.name}>
               <div
-                key={summary.name}
                 className="flex flex-row flex-nowrap flex-shrink-0 gap-3 text-sm opacity-80 hover:opacity-100"
                 onClick={(e) => {
                   e.stopPropagation();
