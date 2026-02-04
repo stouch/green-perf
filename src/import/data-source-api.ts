@@ -1,10 +1,9 @@
-import yahooFinance from "yahoo-finance2";
+import YahooFinance from "yahoo-finance2";
 import dayjs from "dayjs";
 import { AssetHistoryDay } from "./types";
 import axios from "axios";
-
-import { ChartResultArray } from "yahoo-finance2/dist/esm/src/modules/chart";
-import { HistoricalHistoryResult } from "yahoo-finance2/dist/esm/src/modules/historical";
+import { ChartResultArray } from "yahoo-finance2/script/src/modules/chart";
+import { HistoricalHistoryResult } from "yahoo-finance2/script/src/modules/historical";
 
 const convertToHistoricalResult = (
   result: ChartResultArray
@@ -27,6 +26,7 @@ export const importYahooHistory = async (
   tickerId: string,
   periodStart: string
 ): Promise<AssetHistoryDay[]> => {
+  const yahooFinance = new YahooFinance();
   const results = convertToHistoricalResult(
     await yahooFinance.chart(tickerId, {
       period1: periodStart,
