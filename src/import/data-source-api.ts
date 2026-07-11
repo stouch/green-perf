@@ -6,7 +6,7 @@ import { ChartResultArray } from "yahoo-finance2/script/src/modules/chart";
 import { HistoricalHistoryResult } from "yahoo-finance2/script/src/modules/historical";
 
 const convertToHistoricalResult = (
-  result: ChartResultArray
+  result: ChartResultArray,
 ): HistoricalHistoryResult => {
   return result.quotes
     .map((quote) => ({
@@ -18,19 +18,19 @@ const convertToHistoricalResult = (
       volume: quote.volume || null,
     }))
     .filter(
-      (dailyQuote) => dailyQuote.low !== null || dailyQuote.high !== null
+      (dailyQuote) => dailyQuote.low !== null || dailyQuote.high !== null,
     );
 };
 
 export const importYahooHistory = async (
   tickerId: string,
-  periodStart: string
+  periodStart: string,
 ): Promise<AssetHistoryDay[]> => {
   const yahooFinance = new YahooFinance();
   const results = convertToHistoricalResult(
     await yahooFinance.chart(tickerId, {
       period1: periodStart,
-    })
+    }),
   );
 
   if (!results || results.length === 0) {
@@ -48,7 +48,7 @@ export const importYahooHistory = async (
 
 export const importBoursoramaHistory = async (
   tickerId: string,
-  periodStart: string
+  periodStart: string,
 ): Promise<AssetHistoryDay[]> => {
   let daysNb = dayjs().diff(periodStart, "day");
   if (daysNb > 365) {
@@ -77,7 +77,12 @@ export const importBoursoramaHistory = async (
         SymbolId: string;
       };
     }>(
-      `https://www.boursorama.com/bourse/action/graph/ws/GetTicksEOD?symbol=${tickerId}&length=${daysNb}&period=0&guid=`
+      `https://www.boursorama.com/bourse/action/graph/ws/GetTicksEOD?symbol=${tickerId}&length=${daysNb}&period=0&guid=`,
+      {
+        headers: {
+          "x-requested-with": "XMLHttpRequest",
+        },
+      },
     )
   ).data;
   if (!results.d) {
@@ -102,7 +107,7 @@ export const importBoursoramaHistory = async (
 
 export const importQuantalysHistory = async (
   tickerId: string,
-  periodStart: string
+  periodStart: string,
 ): Promise<AssetHistoryDay[]> => {
   const daysNb = dayjs().diff(periodStart, "day");
   const results = (
@@ -128,7 +133,7 @@ export const importQuantalysHistory = async (
         ]),
         sDtStart: dayjs(periodStart).format("DD-MM-YYYY"),
         sDtEnd: dayjs().format("DD-MM-YYYY"),
-      }
+      },
     )
   ).data;
   if (!results.graph) {
