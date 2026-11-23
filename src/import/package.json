@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "import": "ts-node ./index.ts"
   },

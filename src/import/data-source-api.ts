@@ -27,23 +27,29 @@ export const importYahooHistory = async (
   periodStart: string,
 ): Promise<AssetHistoryDay[]> => {
   const yahooFinance = new YahooFinance();
-  const results = convertToHistoricalResult(
-    await yahooFinance.chart(tickerId, {
-      period1: periodStart,
-    }),
-  );
+  try {
+    const results = convertToHistoricalResult(
+      await yahooFinance.chart(tickerId, {
+        period1: periodStart,
+      }),
+    );
 
-  if (!results || results.length === 0) {
-    console.log("No yahoo data !");
+    if (!results || results.length === 0) {
+      console.log(`No yahoo data for ${tickerId} !`);
+      return [];
+    }
+    return results.map((r) => ({
+      date: dayjs(r.date).format("YYYY-MM-DD"),
+      openValue: r.open,
+      highValue: r.high,
+      lowValue: r.low,
+      closeValue: r.close,
+    }));
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    console.log(`Yahoo import failed for ${tickerId}: ${msg}`);
     return [];
   }
-  return results.map((r) => ({
-    date: dayjs(r.date).format("YYYY-MM-DD"),
-    openValue: r.open,
-    highValue: r.high,
-    lowValue: r.low,
-    closeValue: r.close,
-  }));
 };
 
 export const importBoursoramaHistory = async (
