@@ -15,6 +15,9 @@ Default database credentials are set in `db-clients.ts`:
 ```bash
 # Start the clickhouse database (user: default) under 127.0.0.1:8123
 docker compose up -d
+
+# If you already have ClickHouse running on 8123, start this project's ClickHouse on another port:
+CLICKHOUSE_HTTP_PORT=18123 docker compose up -d
 ```
 
 ```bash
@@ -24,7 +27,10 @@ npm ci
 
 # Import/reset data
 # Be warned this is gonna DROP existing data:
-FROM="2022-06-01" npm run import
+CLICKHOUSE_HOST="http://localhost:8123" FROM="2022-06-01" npm run import
+
+# ...or if you used CLICKHOUSE_HTTP_PORT=18123 above:
+CLICKHOUSE_HOST="http://localhost:18123" FROM="2022-06-01" npm run import
 ```
 
 ## Install and start app

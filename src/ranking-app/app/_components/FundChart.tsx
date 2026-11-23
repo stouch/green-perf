@@ -1,11 +1,18 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { LineChart } from "../../components/charts/Linechart";
 import { FundData } from "../../types/shared/fund";
 import { LoadingChart } from "../../components/charts/LoadingChart";
 import nextConfig from "../../next.config";
 import { Dayjs } from "dayjs";
+import dynamic from "next/dynamic";
+
+// ECharts (via `echarts-for-react`) touches `window` during server prerender in production builds.
+// Load it client-side only.
+const LineChart = dynamic(
+  () => import("../../components/charts/Linechart").then((m) => m.LineChart),
+  { ssr: false, loading: () => <LoadingChart /> }
+);
 
 export const FundChart = ({
   id,

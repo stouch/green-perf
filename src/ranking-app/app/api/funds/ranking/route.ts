@@ -3,10 +3,10 @@ import { getFundsRanking } from "../../_services/funds";
 import { FundPeriodSummary } from "../../../../types/shared/fund";
 import dayjs from "dayjs";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { fundId: string } }
-) {
+// Always run at request-time (needs ClickHouse). Prevent Next from trying to prerender at build time.
+export const dynamic = "force-dynamic";
+
+export async function GET(request: Request) {
   const from = dayjs("2023-10-01");
   const to = dayjs();
   const summaries: FundPeriodSummary[] = await getFundsRanking({
