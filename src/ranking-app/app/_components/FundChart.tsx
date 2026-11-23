@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { FundData } from "../../types/shared/fund";
 import { LoadingChart } from "../../components/charts/LoadingChart";
-import nextConfig from "../../next.config";
+import { publicBasePath } from "../includes/base-path";
 import { Dayjs } from "dayjs";
 import dynamic from "next/dynamic";
 
@@ -24,7 +24,7 @@ export const FundChart = ({
   const chartData = useQuery<FundData>(
     ["chart", id],
     async () => {
-      const response = await fetch(`${nextConfig.basePath}/api/funds/${id}`);
+      const response = await fetch(`${publicBasePath}/api/funds/${id}`);
       return await response.json();
     },
     {

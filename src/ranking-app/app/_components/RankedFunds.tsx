@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FundPeriodSummary, FundSource } from "../../types/shared/fund";
 import { deltaBetweenInPercent } from "../includes/utils";
 import dayjs from "dayjs";
-import nextConfig from "../../next.config";
+import { publicBasePath } from "../includes/base-path";
 import { Tooltip } from "@nextui-org/tooltip";
 import Image from "next/image";
 import { FundChart } from "./FundChart";
@@ -124,7 +124,7 @@ export const RankedFunds = () => {
   const [showChart, setShowChart] = useState<string | number | null>(null);
 
   const rankingData = useQuery<FundPeriodSummary[]>(["ranking"], async () => {
-    const response = await fetch(`${nextConfig.basePath}/api/funds/ranking`);
+    const response = await fetch(`${publicBasePath}/api/funds/ranking`);
     return await response.json();
   });
   const [sortKey, setSortKey] = useState(SortKey.THIRTY_D);
